@@ -1,0 +1,40 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Java: Copy File NIO</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="http://purl.org/dc/elements/1.1/" rel="schema.dc"/><meta name="dc.modified" content="2021-05-15T04:49:34Z"/><meta name="dc.created" content="April 21, 2021"/><meta name="generator" content="DocBook xslTNG version 1.4.0 / f5c8bd9 / SAXON HE 10.5"/><link href="../css/docbook.css" rel="stylesheet"/><link href="../css/docbook-screen.css" rel="stylesheet"/><link href="../css/docbook-toc.css" rel="stylesheet"/><link href="../css/prism.css" rel="stylesheet"/><script src="../js/prism.js"></script><link rel="prev" href="javatapas.io.index.html"/><link rel="next" href="javatapas.io.CreateDirectory.html"/><link rel="up" href="javatapas.io.index.html"/><link rel="home" href="../index.html"/></head><body><nav class="top"><div><a href="../index.html">Home</a> <a href="javatapas.io.index.html">Up</a> <a href="javatapas.io.CreateDirectory.html">Next</a> <a href="javatapas.io.index.html">Previous</a></div></nav><main><section id="R_ch1_s1" db-chunk="javatapas.io.CopyFileNIO.html" db-id="d75e23" class="section"><header><h2>Java: Copy File NIO</h2></header><div class="pre-wrap"><pre class="language-java programlisting verbatim"><code>
+// Title: Copy File NIO
+// Keywords: java/file/copy/nio
+
+package javatapas.io;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.io.IOException;
+
+/**
+* Copy a File using Java NIO.
+* @author Kodiak Brown, LLC published on &lt;a href="https://www.javatapas.com"&gt;https://www.javatapas.com&lt;/a&gt;
+* @version 2020-04-28
+*/
+
+public class CopyFileNIO {
+
+/**
+* @param origFileName The name of the source file to be copied.
+* @param newFileName The name of the destination file to be created from the copy.
+*/
+
+public static void copyFile(String origFileName, String newFileName) throws IOException {
+
+	Path originalFile = Paths.get(origFileName);
+
+	Path copiedFile = Paths.get(newFileName);
+
+	Files.createDirectories(Paths.get(copiedFile.getParent().toString()));
+
+	Files.copy(originalFile, copiedFile, StandardCopyOption.REPLACE_EXISTING);
+
+}
+
+} //
+
+</code></pre></div></section></main><nav class="bottom"><table width="100%"><tr><td class="previous"><a href="javatapas.io.index.html">Previous</a></td><td class="up"><a href="javatapas.io.index.html">Up</a></td><td class="next"><a href="javatapas.io.CreateDirectory.html">Next</a></td></tr><tr><td class="previous">io</td><td class="up"><a href="../index.html">Home</a></td><td class="next">Java: Create Directory</td></tr></table><nav class="tocopen"></nav><nav class="toc"></nav><!-- Hide ToC details from user agents that don’t support JS --><script type="text/html" class="tocopen"><span>Table of Contents</span></script><script type="text/html" class="toc"><header><span>Table of Contents</span><span class="close"><span>╳</span></span></header><div><ul class="toc"><li><a href="../io/javatapas.io.index.html">io</a><ul class="toc"><li><a href="../io/javatapas.io.CopyFileNIO.html">Java: Copy File NIO</a></li><li><a href="../io/javatapas.io.CreateDirectory.html">Java: Create Directory</a></li><li><a href="../io/javatapas.io.FileToList.html">Java: File To List</a></li><li><a href="../io/javatapas.io.FileToString.html">Java: File To String</a></li></ul></li><li><a href="../sql/javatapas.sql.index.html">sql</a><ul class="toc"><li><a href="../sql/javatapas.sql.DatabaseMetaDataPlatform.html">Java: Database MetaData Platform</a></li><li><a href="../sql/javatapas.sql.DatabaseMetaDataShowTables.html">Java: Database MetaData Show Tables</a></li></ul></li><li><a href="../string/javatapas.string.index.html">string</a><ul class="toc"><li><a href="../string/javatapas.string.CapitalizeStringWordOrPhrase.html">Java: Capitalize String Word Or Phrase</a></li><li><a href="../string/javatapas.string.CheckIfStringIsInteger.html">Java: Check If String Is Integer</a></li><li><a href="../string/javatapas.string.EscapeXMLString.html">Java: Escape XML String</a></li></ul></li></ul></div></script></nav><script src="../js/persistent-toc.js"></script><script src="../js/chunk-nav.js"></script></body></html>

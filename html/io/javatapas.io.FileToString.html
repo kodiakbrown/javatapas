@@ -1,0 +1,44 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Java: File To String</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="http://purl.org/dc/elements/1.1/" rel="schema.dc"/><meta name="dc.modified" content="2021-05-15T04:49:34Z"/><meta name="dc.created" content="April 21, 2021"/><meta name="generator" content="DocBook xslTNG version 1.4.0 / f5c8bd9 / SAXON HE 10.5"/><link href="../css/docbook.css" rel="stylesheet"/><link href="../css/docbook-screen.css" rel="stylesheet"/><link href="../css/docbook-toc.css" rel="stylesheet"/><link href="../css/prism.css" rel="stylesheet"/><script src="../js/prism.js"></script><link rel="prev" href="javatapas.io.FileToList.html"/><link rel="next" href="../sql/javatapas.sql.index.html"/><link rel="up" href="javatapas.io.index.html"/><link rel="home" href="../index.html"/></head><body><nav class="top"><div><a href="../index.html">Home</a> <a href="javatapas.io.index.html">Up</a> <a href="../sql/javatapas.sql.index.html">Next</a> <a href="javatapas.io.FileToList.html">Previous</a></div></nav><main><section id="R_ch1_s4" db-chunk="javatapas.io.FileToString.html" db-id="d75e70" class="section"><header><h2>Java: File To String</h2></header><div class="pre-wrap"><pre class="language-java programlisting verbatim"><code>
+// Title: File To String
+// Keywords: java/file/string/stream
+
+package javatapas.io;
+
+import java.io.*;
+
+/**
+* Instantiate a Java String from the contents in a Text file.
+* @author Kodiak Brown, LLC published on &lt;a href="https://www.javatapas.com"&gt;https://www.javatapas.com&lt;/a&gt;
+* @version 2020-04-28
+*/
+
+public class FileToString {
+
+/**
+* @param fileName The name of the source file.
+*/
+
+public static String getString(String fileName) throws IOException {
+
+	StringBuilder sb = new StringBuilder();
+	BufferedReader reader = null;
+
+	try {
+		reader = new BufferedReader(new FileReader(fileName));
+		char[] buf = new char[1024];
+		int numRead = 0;
+		String readData;
+		while ((numRead = reader.read(buf)) != -1) {sb.append(buf, 0, numRead);}
+	}
+
+	finally {
+		try {reader.close();}
+		catch (IOException ex) {ex.printStackTrace();}
+	}
+
+	return sb.toString();
+}
+
+} //
+
+</code></pre></div></section></main><nav class="bottom"><table width="100%"><tr><td class="previous"><a href="javatapas.io.FileToList.html">Previous</a></td><td class="up"><a href="javatapas.io.index.html">Up</a></td><td class="next"><a href="../sql/javatapas.sql.index.html">Next</a></td></tr><tr><td class="previous">Java: File To List</td><td class="up"><a href="../index.html">Home</a></td><td class="next">sql</td></tr></table><nav class="tocopen"></nav><nav class="toc"></nav><!-- Hide ToC details from user agents that don’t support JS --><script type="text/html" class="tocopen"><span>Table of Contents</span></script><script type="text/html" class="toc"><header><span>Table of Contents</span><span class="close"><span>╳</span></span></header><div><ul class="toc"><li><a href="../io/javatapas.io.index.html">io</a><ul class="toc"><li><a href="../io/javatapas.io.CopyFileNIO.html">Java: Copy File NIO</a></li><li><a href="../io/javatapas.io.CreateDirectory.html">Java: Create Directory</a></li><li><a href="../io/javatapas.io.FileToList.html">Java: File To List</a></li><li><a href="../io/javatapas.io.FileToString.html">Java: File To String</a></li></ul></li><li><a href="../sql/javatapas.sql.index.html">sql</a><ul class="toc"><li><a href="../sql/javatapas.sql.DatabaseMetaDataPlatform.html">Java: Database MetaData Platform</a></li><li><a href="../sql/javatapas.sql.DatabaseMetaDataShowTables.html">Java: Database MetaData Show Tables</a></li></ul></li><li><a href="../string/javatapas.string.index.html">string</a><ul class="toc"><li><a href="../string/javatapas.string.CapitalizeStringWordOrPhrase.html">Java: Capitalize String Word Or Phrase</a></li><li><a href="../string/javatapas.string.CheckIfStringIsInteger.html">Java: Check If String Is Integer</a></li><li><a href="../string/javatapas.string.EscapeXMLString.html">Java: Escape XML String</a></li></ul></li></ul></div></script></nav><script src="../js/persistent-toc.js"></script><script src="../js/chunk-nav.js"></script></body></html>
